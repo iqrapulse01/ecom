@@ -2,9 +2,13 @@ import "bootstrap/dist/css/bootstrap.min.css";
 import "./App.css";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
 import Home from "./Pages/Home";
+import Listing from "./Pages/Listing";
 import Header from "./Components/Header";
 import { createContext, useEffect, useState } from "react";
 import axios from "axios";
+import Footer from "./Components/Footer";
+import ProductModel from "./Components/ProductModel";
+
 
 //Api for showing country in select country: here will show the whole lists of countries
 
@@ -12,18 +16,26 @@ const MyContext = createContext();
 
 function App() {
   const [countryList, setCountryList] = useState([]);
+  const [selectedCountry, setselectedCountry] = useState(false);
+  const [isOpenProductModel, setisOpenProductModel] = useState(false);
 
   useEffect(() => {
     getCountry("https://countriesnow.space/api/v0.1/countries/");
   }, []);
 
-  const getCountry=async(url)=>{
-    const responsive=await axios.get(url).then((res)=>{
+  const getCountry = async (url) => {
+    const responsive = await axios.get(url).then((res) => {
       setCountryList(res.data.data.country);
       console.log(res.data.data.country)
     })
   }
-  const values = {countryList};
+  const values = {
+    countryList,
+    setselectedCountry,
+    selectedCountry,
+    isOpenProductModel,
+    setisOpenProductModel,
+  };
 
   return (
     <BrowserRouter>
@@ -31,7 +43,14 @@ function App() {
         <Header />
         <Routes>
           <Route path="/" exact={true} element={<Home />} />
+          <Route path="/cat/:id" exact={true} element={<Listing />} />
         </Routes>
+        <Footer />
+
+        {
+          isOpenProductModel === true && <ProductModel />
+        }
+
       </MyContext.Provider>
     </BrowserRouter>
   );

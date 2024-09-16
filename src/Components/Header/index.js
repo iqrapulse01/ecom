@@ -1,5 +1,5 @@
 import React, { useContext } from "react";
-import Logo from "../../assests/images/logo.png";
+import Logo from "../../assets/images/logo.png";
 import { Link } from "react-router-dom";
 import CountryDropdown from "../CountryDropdown";
 import Button from "@mui/material/Button";
@@ -33,7 +33,7 @@ function Header() {
                 </Link>
               </div>
               <div className="col-sm-10 d-flex align-items-center part2">
-                {context.countryList.length!==0 && <CountryDropdown />}
+                {context.countryList?.length !== 0 && <CountryDropdown />}
 
                 <SearchBox />
                 <div className="part3 d-flex align-items-center ml-auto ">
@@ -58,6 +58,7 @@ function Header() {
           </div>
         </header>
         <Navigation />
+       
       </div>
     </>
   );

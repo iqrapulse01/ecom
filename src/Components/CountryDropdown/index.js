@@ -45,7 +45,7 @@ const CountryDropdown = () => {
           <input type="text" placeholder="Search" />
         </div>
         <ul className="countryList mt-3">
-          {context.countryList?.length !== 0 &&
+          {context?.countryList?.length !== 0 &&
             context.countryList?.map((item, index) => {
               return (
                 <li key={index}>
