@@ -67,34 +67,34 @@ const Sidebar = () => {
                         </div>
                     </div>
                     <div className="filterBox">
-                    <h6>
-                        PRODUCT STATUS
-                    </h6>
-                   <div className="scroll">
-                        <ul>
-                            <li>
-                                <FormControlLabel className='w-100' control={<Checkbox />} label="In Stock" />
-                            </li>
-                            <li>
-                                <FormControlLabel className='w-100' control={<Checkbox />} label="On Sale" />
-                            </li>
-                        </ul>
+                        <h6>
+                            PRODUCT STATUS
+                        </h6>
+                        <div className="scroll">
+                            <ul>
+                                <li>
+                                    <FormControlLabel className='w-100' control={<Checkbox />} label="In Stock" />
+                                </li>
+                                <li>
+                                    <FormControlLabel className='w-100' control={<Checkbox />} label="On Sale" />
+                                </li>
+                            </ul>
+                        </div>
                     </div>
-                   </div>
-                   <div className="filterBox">
-                    <h6>
-                        BRAND
-                    </h6>
-                   <div className="scroll">
-                        <ul>
-                            <li>
-                                <FormControlLabel className='w-100' control={<Checkbox />} label="Fairy" />
-                            </li>
-                           
-                        </ul>
+                    <div className="filterBox">
+                        <h6>
+                            BRAND
+                        </h6>
+                        <div className="scroll">
+                            <ul>
+                                <li>
+                                    <FormControlLabel className='w-100' control={<Checkbox />} label="Fairy" />
+                                </li>
+
+                            </ul>
+                        </div>
                     </div>
-                   </div>
-                  
+
                 </div>
                 <br />
                 <Link to="#">

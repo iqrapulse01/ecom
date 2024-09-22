@@ -1,8 +1,11 @@
 import "bootstrap/dist/css/bootstrap.min.css";
 import "./App.css";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
+
 import Home from "./Pages/Home";
 import Listing from "./Pages/Listing";
+import ProductDetails from "./Pages/ProductDetails/Index";
+
 import Header from "./Components/Header";
 import { createContext, useEffect, useState } from "react";
 import axios from "axios";
@@ -44,6 +47,7 @@ function App() {
         <Routes>
           <Route path="/" exact={true} element={<Home />} />
           <Route path="/cat/:id" exact={true} element={<Listing />} />
+          <Route path="/product/:id" exact={true} element={<ProductDetails  />} />
         </Routes>
         <Footer />
 

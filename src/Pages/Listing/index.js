@@ -8,9 +8,11 @@ import { FaAngleDown } from 'react-icons/fa';
 import Menu from '@mui/material/Menu';
 import MenuItem from '@mui/material/MenuItem';
 import ProductItem from '../../Components/ProductItem';
+import Pagination from '@mui/material/Pagination';
+import Stack from '@mui/material/Stack';
 
 const Listing = () => {
-const [productView, setProductView]=useState('four')
+    const [productView, setProductView] = useState('four')
     const [anchorEl, setAnchorEl] = useState(null);
     const openDropdown = Boolean(anchorEl);
     const handleClick = (event) => {
@@ -23,7 +25,7 @@ const [productView, setProductView]=useState('four')
 
     return (
         <>
-            <div className="product_Listing_Page">
+            <section className="product_Listing_Page">
                 <div className="container">
                     <div className="productListing d-flex">
                         <Sidebar />
@@ -35,10 +37,11 @@ const [productView, setProductView]=useState('four')
 
                             <div className="showBy mt-3 mb-3 d-flex align-items-center">
                                 <div className="d-flex align-items-center btnWrapper">
-                                    <Button onClick={()=>setProductView("one")}><IoIosMenu /></Button>
-                                   
-                                    <Button onClick={()=>setProductView("four")}><TfiLayoutGrid4Alt /></Button>
-                                    <Button onClick={()=>setProductView("three")}><CgMenuGridR /></Button>
+
+                                    <Button className={productView==='one' && 'act'} onClick={() => setProductView("one")}><IoIosMenu /></Button>
+
+                                    <Button className={productView==='three' && 'act'} onClick={() => setProductView("three")}><CgMenuGridR /></Button>
+                                    <Button className={productView==='four' && 'act'} onClick={() => setProductView("four")}><TfiLayoutGrid4Alt /></Button>
                                 </div>
                                 <div className="ml-auto showByFilter">
                                     <Button onClick={handleClick}>Show 9 <FaAngleDown /> </Button>
@@ -64,22 +67,52 @@ const [productView, setProductView]=useState('four')
                                 </div>
                             </div>
 
-                            <div className="productListing">
-                                <ProductItem itemView={productView}/>
-                                <ProductItem itemView={productView}/>
-                                <ProductItem itemView={productView}/>
-                                <ProductItem itemView={productView}/>
-                                <ProductItem itemView={productView}/>
-                                <ProductItem itemView={productView}/>
-                                <ProductItem itemView={productView}/>
-                                <ProductItem itemView={productView}/>
+                            <div className="productListing product_row productRow2 w-100 mt-4 d-flex ">
+                                <ProductItem itemView={productView} />
+                                <ProductItem itemView={productView} />
+                                <ProductItem itemView={productView} />
+                                <ProductItem itemView={productView} />
+                                <ProductItem itemView={productView} />
+                                <ProductItem itemView={productView} />
+                                <ProductItem itemView={productView} />
+                                <ProductItem itemView={productView} />
+                                <ProductItem itemView={productView} />
+                                <ProductItem itemView={productView} />
+                                <ProductItem itemView={productView} />
+                                <ProductItem itemView={productView} />
+                                <ProductItem itemView={productView} />
+                                <ProductItem itemView={productView} />
+                                <ProductItem itemView={productView} />
+                                <ProductItem itemView={productView} />
+                                <ProductItem itemView={productView} />
+                                <ProductItem itemView={productView} />
+                                <ProductItem itemView={productView} />
+                                <ProductItem itemView={productView} />
+                                <ProductItem itemView={productView} />
+                                <ProductItem itemView={productView} />
+                                <ProductItem itemView={productView} />
+                                <ProductItem itemView={productView} />
+                                <ProductItem itemView={productView} />
+                                <ProductItem itemView={productView} />
+                                <ProductItem itemView={productView} />
+                                <ProductItem itemView={productView} />
+                                <ProductItem itemView={productView} />
+                                <ProductItem itemView={productView} />
+                                <ProductItem itemView={productView} />
+                                <ProductItem itemView={productView} />
+                                <ProductItem itemView={productView} />
+                                <ProductItem itemView={productView} />
+                                <ProductItem itemView={productView} />
+                                <ProductItem itemView={productView} />
                             </div>
-
+                            <div className="d-flex align-items-center justify-content-center mt-5">
+                                <Pagination count={10} color="primary" size='large' />
+                            </div>
 
                         </div>
                     </div>
                 </div>
-            </div>
+            </section>
 
         </>
     )
